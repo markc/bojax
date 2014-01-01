@@ -42,16 +42,16 @@ hook can be used instead.
 
 ## How to Create a New Post
 
-A new post is created by simply adding a new [Markdown] file to `lib/md/`
-with a very simple format. The very first line is a `######` (H6) tag
-with a friendly date and category. That is followed by a blank line
-and `##` (H2) heading and then the content of the post in Markdown
-format. Simply name the file `digit.md` where `digit` is the next
+A new post is created by adding a new [Markdown] file to `lib/md/` with a
+very simple format. The very first line has to be a `######` (H6) tag
+with a friendly date and category which is followed by a blank line and
+`##` (H2) heading and another blank line and then the content of the post
+in Markdown format. Name the file `digit.md` where `digit` is the next
 higher number in the `lib/md/` folder and link to it as, for example,
-`/10`. For now the initial frontpage index has to be created by hand
-so copy the top 2 `######` and `##` lines and the first paragraph and
-paste them into `lib/md/1.md` at the very top followed by a `---` (HR)
-line separator.
+`/10`. For now the initial frontpage index has to be created by hand so
+copy the top 2 `######` and `##` headings and the first paragraph and
+paste them into `lib/md/1.md` (the main index or home page) at the very
+top followed by a link and `---` (HR) line separator. Example...
 
     ###### 1 January 2014 on Personal Blog
 
