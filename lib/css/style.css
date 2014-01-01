@@ -1,0 +1,154 @@
+/* bjax/lib/css/style.css (c) Mark Constable (AGPL-3.0) */
+
+body {
+  padding-top: 60px;
+  overflow-y: scroll;
+}
+
+.container {
+  max-width: 700px;
+}
+
+#content {
+  border-bottom: #EBF2F6 1px solid;
+  padding-bottom: 4rem;
+  position: relative;
+}
+
+#content p {
+  color: #3F3F3F;
+  font-family: 'Droid Serif', serif;
+  font-size: 1.25em;
+  line-height: 1.6em;
+  margin: 1.6rem 0 0 0;
+}
+
+#content pre {
+  margin: 1em 0;
+  overflow-x: auto;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+#content pre code {
+  font-size: 1.25em;
+  line-height: 1.6em;
+  white-space: pre;
+}
+
+#content code {
+  font-size: 100%;
+}
+
+#content a {
+  color: #4F4F4F;
+  text-decoration: underline;
+  transition: color ease 0.3s;
+}
+
+#content a:hover {
+  color: #57A3E8;
+}
+
+#content h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+#content h2 a {
+  text-decoration: none;
+}
+
+#content h6 {
+  color: #9EABB3;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  margin: 1em 0;
+}
+
+#content hr {
+  margin-bottom: 0;
+}
+
+#content form {
+  margin: 1em 0;
+}
+
+#content:after {
+  background: #fff;
+  border-radius: 100%;
+  border: #E7EEF2 1px solid;
+  bottom: -0.5em;
+  box-shadow: #fff 0 0 0 0.5em;
+  content: "";
+  height: 1em;
+  left: 50%;
+  margin-left: -0.5em;
+  position: absolute;
+  width: 1em;
+}
+
+.pagination {
+  color: #9EABB3;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+  text-align: center;
+  width: 100%;
+}
+
+.site-footer {
+  background: #F7FAFB;
+  border-top: #EBF2F6 1px solid;
+  color: #BBC7CC;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+  line-height: 1.7em;
+  margin: 4em 0 0 0;
+  padding: 3em 0;
+  position: relative;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #BBC7CC;
+  text-decoration: underline;
+}
+
+.subscribe {
+  background: #fff;
+  border-radius: 50px;
+  border: #EBF2F6 1px solid;
+  height: 28px;
+  left: 50%;
+  line-height: 2.4rem;
+  margin-left: -15px;
+  position: absolute;
+  text-align: center;
+  top: -14px;
+  transition: box-shadow 0.5s;
+  width: 28px;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: 700px;
+  position: relative;
+  width: 80%;
+}
+
+.navbar-inverse {
+  opacity: 0.95;
+}
+
+@media only screen and (max-width: 500px) {
+
+  #content h2 { font-size: 2em; }
+  #content h6 { font-size: 0.9em; }
+  #content pre code,
+  #content p { font-size: 1em; }
+}
