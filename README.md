@@ -63,8 +63,16 @@ top followed by a link and `---` (HR) line separator. Example...
 
     ---
 
+## bjax.js jQuery plugin
+
+The important core part of this project is `lib/js/bjax.js` which
+provides the AJAX and HTML5 pushState functionality at (currently) about
+100 lines of code. It's based on [jquery-boilerplate] with a few clues
+borrowed from [jquery.ajaxable], thanks @matheusgomesweb.
 
 [Ghost]: http://ghost.org
 [post-receive-hooks]: https://help.github.com/articles/post-receive-hooks
 [Markdown]: http://en.wikipedia.org/wiki/Markdown
+[jquery-boilerplate]: https://github.com/jquery-boilerplate
+[jquery.ajaxable]: https://github.com/matheusgomesweb/jquery.ajaxable
 
