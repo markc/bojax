@@ -35,10 +35,18 @@ which would force all the non-existent numeric short-urls back to the
 index.html file and provide deep linking. If using Github then it's
 [post-receive-hooks] feature can be used to auto update a website but
 then some kind of PHP or server side scripting is required so to keep
-it ultra simple `rsync` called from a local `.git/hooks/post-receive`
+it ultra simple `rsync` called from a local `.git/hooks/post-commit`
 hook can be used instead.
 
-    TODO example .git/hooks/post-receive
+    #!/bin/sh
+    rsync -aq ./ remote_site:/var/www/bjax --exclude .github
+
+Make sure you `chmod +x .git/hooks/post-commit` and the `./` path will
+need to be a full path to your repo if you execute a `git commit/push`
+from outside of your git repo. `remote_site:` assumes your SSH keys are
+setup for the remote server and your `~/.ssh/config` is condifured
+apparopriately.
+
 
 ## How to Create a New Post
 
