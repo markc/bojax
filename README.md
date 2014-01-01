@@ -40,5 +40,31 @@ hook can be used instead.
 
     TODO example .git/hooks/post-receive
 
+## How to Create a New Post
+
+A new post is created by simply adding a new [Markdown] file to `lib/md/`
+with a very simple format. The very first line is a `######` (H6) tag
+with a friendly date and category. That is followed by a blank line
+and `##` (H2) heading and then the content of the post in Markdown
+format. Simply name the file `digit.md` where `digit` is the next
+higher number in the `lib/md/` folder and link to it as, for example,
+`/10`. For now the initial frontpage index has to be created by hand
+so copy the top 2 `######` and `##` lines and the first paragraph and
+paste them into `lib/md/1.md` at the very top followed by a `---` (HR)
+line separator.
+
+    ###### 1 January 2014 on Personal Blog
+
+    ## [Happy New Year]
+
+    Hello everyone, I hope you have a very happy year ahead! :-)
+
+    [Happy New Year]: /10
+
+    ---
+
+
 [Ghost]: http://ghost.org
 [post-receive-hooks]: https://help.github.com/articles/post-receive-hooks
+[Markdown]: http://en.wikipedia.org/wiki/Markdown
+
