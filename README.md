@@ -71,6 +71,12 @@ top followed by a link and `---` (HR) line separator. Example...
 
     ---
 
+Something like this shell snippet can work out the filename of the next
+posting...
+
+    echo "lib/md/$(($(ls -1v lib/md | tail -n 1 | cut -d. -f 1)+1)).md"
+
+
 ## bjax.js jQuery plugin
 
 The important core part of this project is `lib/js/bjax.js` which
