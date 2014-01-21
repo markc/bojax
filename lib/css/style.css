@@ -146,7 +146,7 @@ body {
 
 .table th { background-color: #DDDDDD; }
 .lhs { width: 30%; background-color: #EEEEEE; font-weight: bold; }
-
+/*
 @media only screen and (max-width: 1366px) {
 
   #content h2 { font-size: 2em; }
@@ -154,7 +154,7 @@ body {
   #content pre code,
   #content p { font-size: 1em; }
 }
-
+*/
 @media only screen and (max-width: 500px) {
 
   #content h2 { font-size: 1.5em; }
