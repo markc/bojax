@@ -12,6 +12,7 @@ of this project are to provide...
 - short numeric URLs by default
 - no PHP or server side language or database required
 - will run on as little as a 64Mb VPS or LXC container
+- optional integration with OpenResty and LUA scripts
 
 At this stage, deep linking does not work (and can't work without server
 side support) and remote http links need fixing. To install just clone
