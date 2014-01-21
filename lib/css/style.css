@@ -17,20 +17,21 @@ body {
 
 #content h2 {
   font-family: 'Open Sans', sans-serif;
-  font-size: 4rem;
+  font-size: 3em;
   font-weight: bold;
   letter-spacing: -1px;
-  margin: 0;
 }
 
 #content h6 {
   color: #9EABB3;
   display: inline-block;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.5rem;
-  margin: 1em 0;
+  font-size: 1em;
+  margin: 1em 0 -1em 0;
 }
-#content p {
+
+#content p,
+#content ul {
   color: #3F3F3F;
   font-family: 'Droid Serif', serif;
   font-size: 1.25em;
@@ -39,6 +40,8 @@ body {
 }
 
 #content pre {
+  font-size: 1.1em;
+  line-height: 1.6em;
   margin: 1em 0;
   overflow-x: auto;
   white-space: pre;
@@ -46,14 +49,8 @@ body {
   word-wrap: normal;
 }
 
-#content pre code {
-  font-size: 1.25em;
-  line-height: 1.6em;
-  white-space: pre;
-}
-
 #content code {
-  font-size: 100%;
+  font-size: 1.1em;
 }
 
 #content a {
@@ -157,8 +154,16 @@ body {
 */
 @media only screen and (max-width: 500px) {
 
-  #content h2 { font-size: 1.5em; }
-  #content h6 { font-size: 0.8em; }
+  #content h2 { font-size: 2em; }
+  #content h6 { font-size: 0.9em; }
   #content pre code,
-  #content p { font-size: 0.9em; }
+  #content code,
+  #content ul,
+  #content p { font-size: 1em; }
+  #content pre {
+    overflow-x: auto;
+    white-space: pre;
+    word-break: normal;
+    word-wrap: normal;
+  }
 }

@@ -1,5 +1,6 @@
-bjax
-====
+###### 21 January 2014 on GitHub
+
+## bjax
 
 A very simple static blog system based on Bootstrap3 using a Git(hub)
 backend to manage a website and also act as a backup. The primary goals
