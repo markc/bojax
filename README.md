@@ -1,6 +1,6 @@
 ###### 21 January 2014 on GitHub
 
-## Bjax
+# Bjax
 
 A very simple static blog system based on Bootstrap3 using a Git(hub)
 backend to manage a website and also act as a backup. The primary goals
@@ -55,17 +55,17 @@ apparopriately.
 A new post is created by adding a new [Markdown] file to `lib/md/` with a
 very simple format. The very first line has to be a `######` (H6) tag
 with a friendly date and category which is followed by a blank line and
-`##` (H2) heading and another blank line and then the content of the post
+`#` (H1) heading and another blank line and then the content of the post
 in Markdown format. Name the file `digit.md` where `digit` is the next
 higher number in the `lib/md/` folder and link to it as, for example,
 `/10`. For now the initial frontpage index has to be created by hand so
-copy the top 2 `######` and `##` headings and the first paragraph and
+copy the top 2 `######` and `#` headings and the first paragraph and
 paste them into `lib/md/1.md` (the main index or home page) at the very
 top followed by a link and `---` (HR) line separator. Example...
 
     ###### 1 January 2014 on Personal Blog
 
-    ## [Happy New Year]
+    # [Happy New Year]
 
     Hello everyone, I hope you have a very happy year ahead! :-)
 
@@ -76,7 +76,7 @@ top followed by a link and `---` (HR) line separator. Example...
 Something like this shell snippet can work out the filename of the next
 posting...
 
-    echo "lib/md/$(($(ls -1v lib/md | tail -n 1 | cut -d. -f 1)+1)).md"
+    echo "lib/md/$(($(/bin/ls -1v lib/md | tail -n 1 | cut -d. -f 1)+1)).md"
 
 
 ## bjax.js jQuery plugin
@@ -91,4 +91,3 @@ borrowed from [jquery.ajaxable], thanks @matheusgomesweb.
 [Markdown]: http://en.wikipedia.org/wiki/Markdown
 [jquery-boilerplate]: https://github.com/jquery-boilerplate
 [jquery.ajaxable]: https://github.com/matheusgomesweb/jquery.ajaxable
-

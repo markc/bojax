@@ -11,15 +11,35 @@ body {
 
 #content {
   border-bottom: #EBF2F6 1px solid;
-  padding-bottom: 4rem;
+  color: #3A4145;
+  padding-bottom: 3em;
   position: relative;
 }
 
+#content h1,
 #content h2 {
   font-family: 'Open Sans', sans-serif;
-  font-size: 3em;
   font-weight: bold;
   letter-spacing: -1px;
+  margin-top: 10px;
+  text-indent: -2px;
+}
+
+#content h1 a,
+#content h2 a {
+  color: #50585D;
+  text-decoration: none;
+}
+
+#content h1 {
+  font-size: 2.75em;
+}
+
+#content h2 {
+  border-bottom: solid 1px #eee;
+  font-size: 2em;
+  line-height: 1.7;
+  margin-top: 1em;
 }
 
 #content h6 {
@@ -61,10 +81,6 @@ body {
 
 #content a:hover {
   color: #57A3E8;
-}
-
-#content h2 a {
-  text-decoration: none;
 }
 
 #content hr {
@@ -154,7 +170,7 @@ body {
 */
 @media only screen and (max-width: 500px) {
 
-  #content h2 { font-size: 2em; }
+  #content h1 { font-size: 2em; }
   #content h6 { font-size: 0.9em; }
   #content pre code,
   #content code,
