@@ -85,8 +85,12 @@ between the frontpage summaries. Here is a full frontpage summary example...
 
     ---
 
-Something like this shell snippet can work out the filename of the next
-posting when executed from the root of the repo...
+So clicking on the "Happy New Year" heading will load in the contents of
+`lib/md/10.md` posting. Clicking on the site title will load back in the
+`lib/md/1.md` frontpage index which is particularly handy in mobile mode.
+
+Something like this shell snippet below can work out the filename of the
+next posting when executed from the root of the repo...
 
     echo "lib/md/$(($(/bin/ls -1v lib/md | tail -n 1 | cut -d. -f 1)+1)).md"
 
@@ -117,7 +121,7 @@ of code. It's based on [jquery-boilerplate] with a few clues borrowed from
 this jQuery plugin are most welcome.
 
 
-## [lib/css/stlye.css]
+## [lib/css/style.css]
 
 The main [lib/css/style.css] stylesheet is a mixture of some markup style
 from the [Ghost] project plus a little [Github] styling on top of a
@@ -129,7 +133,7 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [Markdown]: http://en.wikipedia.org/wiki/Markdown
 [jquery-boilerplate]: https://github.com/jquery-boilerplate
 [jquery.ajaxable]: https://github.com/matheusgomesweb/jquery.ajaxable
-[colne this repo]: https://github.com/markc/bjax.git
+[clone this repo]: https://github.com/markc/bjax.git
 [download and extract]: https://github.com/markc/bjax/archive/master.zip
 [disqus]: http://disqus.com/websites
 [OpenResty Lua Examples]: https://github.com/markc/lua
