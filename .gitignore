@@ -1,4 +1,6 @@
 lib/lua
+dav
+
 lib-cov
 *.seed
 *.log
