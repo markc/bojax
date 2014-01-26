@@ -2,9 +2,9 @@
 
 # Bjax
 
-A very simple static blog system based on Bootstrap3 using an optional
-Git(hub) backend to manage a website, which can also act as a backup.
-The primary goals of this project are to provide...
+A very simple static blog system based on Bootstrap + AJAX using an optional
+Git(hub) backend to manage a website, which can also act as a backup. The
+primary goals of this project are to provide...
 
 - a basic Bootstrap mobile-first interface
 - a totally AJAX/pushState driven `single page application`
@@ -15,8 +15,8 @@ The primary goals of this project are to provide...
 - will run on as little as a 64Mb VPS or LXC container
 - optional integration with OpenResty and LUA scripts
 
-To install just [clone this repo] or [download and extract] the zipfile
-and point your web server to it's directory, zero setup.
+To install just [clone this repo] or [download and extract] the zipfile and
+point your web server to it's directory, zero setup.
 
     # on webserver
     cd /var/www
@@ -33,9 +33,9 @@ A simple configuration snippet for `nginx` could be something like this...
 which would force all the non-existent numeric short-urls back to the
 index.html file and provide deep linking. If using Github then it's
 [post-receive-hooks] feature can be used to auto update a website but
-then some kind of PHP or server side scripting is required so to keep
-it ultra simple `rsync` called from a local `.git/hooks/post-commit`
-hook can be used instead.
+then some kind of PHP or server side scripting is required so to keep it
+ultra simple `rsync` called from a local `.git/hooks/post-commit` hook
+can be used instead.
 
     #!/bin/sh
     rsync -aq ./ remote_site:/var/www/bjax --del --exclude='.git'
@@ -71,7 +71,7 @@ number in the `lib/md/` folder and link to it as `slash + digit` (ie; /10).
 
 For now the initial frontpage index has to be created by hand so copy the
 top 2 `######` and `#` headings and the **first paragraph** and paste them
-into the top of the `lib/md/1.md` file (the main index page) followed by a
+into the top of the [lib/md/1.md] file (the main index page) followed by a
 link to the actual `lib/md/*.md` posting. Use a `---` (HR) line separator
 between the frontpage summaries. Here is a full frontpage summary example...
 
@@ -92,34 +92,34 @@ posting when executed from the root of the repo...
 
 Obviously feel free to remove or edit the current examples in `lib/md` as
 they are there simply to provide some blog-like example context, however,
-the special `lib/md/1.md` frontpage must remain as the main index.
+the special [lib/md/1.md] frontpage must remain as the main index.
 
 
-## index.html
+## [index.html]
 
-Some titles and links need to be changed in the `index.html` page and comment
+Some titles and links need to be changed in the [index.html] page and comment
 or remove the [OpenResty Lua Examples] if they are of no interest. The main
-frontpage index links to `lib/md/1.md` from the **navbar-brand** project
-title and must remain as such. **About** links to `lib/md/2.md` which in turn
-symlinks to this `README.md`. **Contact** links  to `lib/md/3.md` and is
-generic enough to remain as is. **Comments** links to `lib/md/4.md` and needs
+frontpage index links to [lib/md/1.md] from the `navbar-brand` project
+title and must remain as such. `About` links to [lib/md/2.md] which in turn
+symlinks to this [README.md]. `Contact` links  to [lib/md/3.md] and is
+generic enough to remain as is. `Comments` links to [lib/md/4.md] and needs
 to be altered to your [disqus] account if you chose to use such a "Comments"
 page. The Bootstrap and jQuery CDN links will always be updated to the latest
 stable releases. You could always try an older jQuery if you need IE support.
 
 
-## lib/js/bjax.js
+## [lib/js/bjax.js]
 
-The important core part of this project is `lib/js/bjax.js` which provides
+The important core part of this project is [lib/js/bjax.js] which provides
 the AJAX and HTML5 pushState functionality at (currently) about 100 lines
 of code. It's based on [jquery-boilerplate] with a few clues borrowed from
 [jquery.ajaxable], thanks @matheusgomesweb. Ideas and patches to improve
 this jQuery plugin are most welcome.
 
 
-## lib/css/stlye.css
+## [lib/css/stlye.css]
 
-The main `lib/css/style.css` stylesheet is a mixture of some markup style
+The main [lib/css/style.css] stylesheet is a mixture of some markup style
 from the [Ghost] project plus a little [Github] styling on top of a
 [Bootstrap] foundation. Adjust to your tastes.
 
@@ -135,3 +135,11 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [OpenResty Lua Examples]: https://github.com/markc/lua
 [Github]: https://github.commit
 [Bootstrap]: http://getbootstrap.com
+[index.html]: https://raw2.github.com/markc/bjax/master/index.html
+[lib/css/style.css]: https://raw2.github.com/markc/bjax/master/lib/css/style.css
+[lib/js/bjax.js]: https://raw2.github.com/markc/bjax/master/lib/js/bjax.js
+[README.md]: https://raw2.github.com/markc/bjax/master/README.md
+[lib/md/1.md]: https://raw2.github.com/markc/bjax/master/lib/md/1.md
+[lib/md/2.md]: https://raw2.github.com/markc/bjax/master/lib/md/2.md
+[lib/md/3.md]: https://raw2.github.com/markc/bjax/master/lib/md/3.md
+[lib/md/4.md]: https://raw2.github.com/markc/bjax/master/lib/md/4.md
