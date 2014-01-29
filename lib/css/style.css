@@ -157,6 +157,20 @@ body {
   opacity: 0.95;
 }
 
+#content table { width: 100%; }
+
+img[alt=Thumbnail] {
+  float: right;
+  max-height: 120px;
+  margin-left: 0.5em;
+}
+
+img[alt=FullSize] {
+  max-width: 800px;
+  margin: 0.5em auto;
+  max-height: 640px;
+}
+
 .table th { background-color: #DDDDDD; }
 .lhs { width: 30%; background-color: #EEEEEE; font-weight: bold; }
 /*
@@ -182,4 +196,6 @@ body {
     word-break: normal;
     word-wrap: normal;
   }
+  img[alt=Thumbnail] { max-height: 80px; }
+  img[alt=FullSize] { width: 100%; }
 }
