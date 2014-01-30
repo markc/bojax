@@ -101,11 +101,12 @@ the special [lib/md/1.md] frontpage must remain as the main index.
 ## How to handle images
 
 Image handling is a bit of a hack but the first attempt seems to mostly work
-by abusing the [marked] and its [GFM] extension for tables. Using the example
-for the example [/10] post, the first row (with FullSize) defines the image
-itself wrapped inside a link, the 2 second row says to center this column and
-the 3rd row is a comment in italics. The `[2]` and `[1]` become references to
-links at the bottom of the page.
+by abusing the [marked] script and its [GFM] extension for tables. Using the
+example from the [/10] post, the first row (with FullSize) defines the image
+itself wrapped inside a link, the 2 second row says to center this table
+column and the 3rd row is a comment in italics. The `[2]` becomes the `src`
+of the image and `[1]` becomes a direct link to the image so it can be
+viewed in it's original form and downloaded via the RMB browser menu.
 
     # [ownCloud Is Too Heavy]
 
