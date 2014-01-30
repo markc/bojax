@@ -98,6 +98,43 @@ Obviously feel free to remove or edit the current examples in `lib/md` as
 they are there simply to provide some blog-like example context, however,
 the special [lib/md/1.md] frontpage must remain as the main index.
 
+## How to handle images
+
+Image handling is a bit of a hack but the first attempt seems to mostly work
+by abusing the [marked] and its [GFM] extension for tables. Using the example
+for the example [/10] post, the first row (with FullSize) defines the image
+itself wrapped inside a link, the 2 second row says to center this column and
+the 3rd row is a comment in italics. The `[2]` and `[1]` become references to
+links at the bottom of the page.
+
+    # [ownCloud Is Too Heavy]
+
+    |[![FullSize][2]][1]|
+    |:---:|
+    | _ownCloud Android app config screen_ |
+
+    (posting content)
+
+    [1]: http://u2.renta.net/lib/img/n5-owncloud.jpg
+    [2]: /lib/img/n5-owncloud.jpg
+
+The above is for the actual posting page, for the summary in the index page
+we want a thumbnail that also links to the actual post. For this we use the
+below construct where the image and it's link are above the main heading and
+the `n5-owncloud` reference links to the actual image (which could be offsite).
+
+    [![Thumbnail][n5-owncloud]][10]
+
+    # [ownCloud Is Too Heavy]
+
+    (posting content)
+
+    [n5-owncloud]: /lib/img/n5-owncloud.jpg
+    [10]: /10
+
+Without a fancy dynamic backend this is a bit of a bother and definitely a
+kludge but, it works, and yet again saves us from requiring that backend
+which has to be paid for with extra server resources.
 
 ## [index.html]
 
@@ -147,3 +184,6 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [lib/md/2.md]: https://raw2.github.com/markc/bjax/master/lib/md/2.md
 [lib/md/3.md]: https://raw2.github.com/markc/bjax/master/lib/md/3.md
 [lib/md/4.md]: https://raw2.github.com/markc/bjax/master/lib/md/4.md
+[/10]: https://raw2.github.com/markc/bjax/master/lib/md/10.md
+[marked]: https://github.com/chjj/marked
+[GFM]: https://help.github.com/articles/github-flavored-markdown
