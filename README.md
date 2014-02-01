@@ -1,10 +1,10 @@
 ###### 27 January 2014 on GitHub
 
-# Bojax
+# BoJAX
 
-A very simple static blog system based on Bootstrap + AJAX using an optional
-Git(hub) backend to manage a website, which can also act as a backup. The
-primary goals of this project are to provide...
+A very simple static blog system based on **Bo**otstrap and A**JAX** using an
+optional Git(hub) backend to manage a website, which can also act as a backup.
+The primary goals of this project are to provide...
 
 - a basic Bootstrap mobile-first interface
 - a totally AJAX/pushState driven `single page application`
