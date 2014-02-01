@@ -7,12 +7,12 @@ optional Git (or [GitHub]) backend to manage a website._
 
 The primary goal of this project is to provide...
 
-- a basic Bootstrap **mobile-first** interface
+- firstly, a basic Bootstrap **mobile-first** interface
 - an AJAX/pushState driven `single page application`
 - short numeric bookmarkable URLs for posts by default
 - modern HTML5/CSS3 attributes (no IE6/7/8/9 support)
 - will run on as little as a 64Mb VPS or LXC container
-- no PHP or server side language or database required
+- no PHP or server side scripting or database required
 - optional integration with [OpenResty] and [LUA] scripts
 
 
