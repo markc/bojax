@@ -1,6 +1,6 @@
 ###### 27 January 2014 on GitHub
 
-# Bjax
+# Bojax
 
 A very simple static blog system based on Bootstrap + AJAX using an optional
 Git(hub) backend to manage a website, which can also act as a backup. The
@@ -8,25 +8,28 @@ primary goals of this project are to provide...
 
 - a basic Bootstrap mobile-first interface
 - a totally AJAX/pushState driven `single page application`
+- short tiny numeric URLs for posts by default
 - modern HTML5/CSS3 attributes (no IE6/7/8/9 support)
-- some layout ideas and CSS courtesy of [Ghost]
-- short numeric URLs by default
-- no PHP or server side language or database required
 - will run on as little as a 64Mb VPS or LXC container
-- optional integration with OpenResty and LUA scripts
+- no PHP or server side language or database required
+- optional integration with [OpenResty] and [LUA] scripts
+- some layout ideas and CSS courtesy of [Ghost]
+
+
+## Installation
 
 To install just [clone this repo] or [download and extract] the zipfile and
 point your web server to it's directory, zero setup.
 
     # on webserver
     cd /var/www
-    git clone https://github.com/markc/bjax
+    git clone https://github.com/markc/bojax
 
 A simple configuration snippet for `nginx` could be something like this...
 
     server {
-      server_name  bjax.example.com;
-      root         /var/www/bjax/;
+      server_name  bojax.example.com;
+      root         /var/www/bojax/;
       location     / { try_files $uri $uri/ /index.html; }
     }
 
@@ -38,7 +41,7 @@ ultra simple `rsync` called from a local `.git/hooks/post-commit` hook
 can be used instead.
 
     #!/bin/sh
-    rsync -aq ./ remote_site:/var/www/bjax --del --exclude='.git'
+    rsync -aq ./ remote_site:/var/www/bojax --del --exclude='.git'
     ssh -t remote_site sudo -i nginx -s reload
 
 Make sure you `chmod +x .git/hooks/post-commit` and the `./` path will
@@ -54,7 +57,7 @@ appropriately...
       IdentityFile ~/.ssh/remote_site_key
 
 
-## How to Create a New Post
+## How To Create A New Post
 
 A new post is created by adding a new [Markdown] file to `lib/md/` with a
 very simple format. The very first line has to be a `######` (H6) tag
@@ -98,15 +101,16 @@ Obviously feel free to remove or edit the current examples in `lib/md` as
 they are there simply to provide some blog-like example context, however,
 the special [lib/md/1.md] frontpage must remain as the main index.
 
-## How to handle images
+
+## How To Handle Images
 
 Image handling is a bit of a hack but the first attempt seems to mostly work
 by abusing the [marked] script and its [GFM] extension for tables. Using the
 example from the [/10] post, the first row (with FullSize) defines the image
-itself wrapped inside a link, the 2 second row says to center this table
-column and the 3rd row is a comment in italics. The `[2]` becomes the `src`
-of the image and `[1]` becomes a direct link to the image so it can be
-viewed in it's original form and downloaded via the RMB browser menu.
+itself wrapped inside a link, the 2nd row says to center this table column
+and the 3rd row is a comment in italics. The `[2]` becomes the `src` of the
+image and `[1]` becomes a direct link to the image so it can be viewed in
+it's original form and downloaded via the RMB browser menu.
 
     # [ownCloud Is Too Heavy]
 
@@ -150,9 +154,9 @@ page. The Bootstrap and jQuery CDN links will always be updated to the latest
 stable releases. You could always try an older jQuery if you need IE support.
 
 
-## [lib/js/bjax.js]
+## [lib/js/bojax.js]
 
-The important core part of this project is [lib/js/bjax.js] which provides
+The important core part of this project is [lib/js/bojax.js] which provides
 the AJAX and HTML5 pushState functionality at (currently) about 100 lines
 of code. It's based on [jquery-boilerplate] with a few clues borrowed from
 [jquery.ajaxable], thanks @matheusgomesweb. Ideas and patches to improve
@@ -171,20 +175,22 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [Markdown]: http://en.wikipedia.org/wiki/Markdown
 [jquery-boilerplate]: https://github.com/jquery-boilerplate
 [jquery.ajaxable]: https://github.com/matheusgomesweb/jquery.ajaxable
-[clone this repo]: https://github.com/markc/bjax.git
-[download and extract]: https://github.com/markc/bjax/archive/master.zip
+[clone this repo]: https://github.com/markc/bojax.git
+[download and extract]: https://github.com/markc/bojax/archive/master.zip
 [disqus]: http://disqus.com/websites
 [OpenResty Lua Examples]: https://github.com/markc/lua
 [Github]: https://github.commit
 [Bootstrap]: http://getbootstrap.com
-[index.html]: https://raw2.github.com/markc/bjax/master/index.html
-[lib/css/style.css]: https://raw2.github.com/markc/bjax/master/lib/css/style.css
-[lib/js/bjax.js]: https://raw2.github.com/markc/bjax/master/lib/js/bjax.js
-[README.md]: https://raw2.github.com/markc/bjax/master/README.md
-[lib/md/1.md]: https://raw2.github.com/markc/bjax/master/lib/md/1.md
-[lib/md/2.md]: https://raw2.github.com/markc/bjax/master/lib/md/2.md
-[lib/md/3.md]: https://raw2.github.com/markc/bjax/master/lib/md/3.md
-[lib/md/4.md]: https://raw2.github.com/markc/bjax/master/lib/md/4.md
-[/10]: https://raw2.github.com/markc/bjax/master/lib/md/10.md
+[index.html]: https://raw2.github.com/markc/bojax/master/index.html
+[lib/css/style.css]: https://raw2.github.com/markc/bojax/master/lib/css/style.css
+[lib/js/bojax.js]: https://raw2.github.com/markc/bojax/master/lib/js/bojax.js
+[README.md]: https://raw2.github.com/markc/bojax/master/README.md
+[lib/md/1.md]: https://raw2.github.com/markc/bojax/master/lib/md/1.md
+[lib/md/2.md]: https://raw2.github.com/markc/bojax/master/lib/md/2.md
+[lib/md/3.md]: https://raw2.github.com/markc/bojax/master/lib/md/3.md
+[lib/md/4.md]: https://raw2.github.com/markc/bojax/master/lib/md/4.md
+[/10]: https://raw2.github.com/markc/bojax/master/lib/md/10.md
 [marked]: https://github.com/chjj/marked
 [GFM]: https://help.github.com/articles/github-flavored-markdown
+[OpenResty]: http://openresty.org
+[LUA]: http://www.lua.org/about.html
