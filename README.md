@@ -2,24 +2,25 @@
 
 # BoJAX
 
-A very simple static blog system based on __Bo__otstrap and A__JAX__ using
-an optional Git(hub) backend to manage a website, which can also act as a
-backup. The primary goals of this project are to provide...
+A very simple static blog system based on **Bootstrap and AJAX** using an
+optional Git (or [GitHub]) backend to manage a website, which can also act
+as a backup. The primary goals of this project are to provide...
 
-- a basic Bootstrap mobile-first interface
-- a totally AJAX/pushState driven `single page application`
+- a basic Bootstrap **mobile-first** interface
+- a fully AJAX/pushState driven `single page application`
 - short tiny numeric URLs for posts by default
 - modern HTML5/CSS3 attributes (no IE6/7/8/9 support)
 - will run on as little as a 64Mb VPS or LXC container
 - no PHP or server side language or database required
 - optional integration with [OpenResty] and [LUA] scripts
-- some layout ideas and CSS courtesy of [Ghost]
 
 
 ## Installation
 
-To install just [clone this repo] or [download and extract] the zipfile
-and point your web server to it's directory, zero setup.
+To install just [clone this repo] or [download and extract] the zipfile and
+point your web server to it's directory, zero setup. A build script for
+[OpenResty], using the latest nginx and [LUA] module, is available from the
+[markc/lua] repository as [openresty.build].
 
     # on webserver
     cd /var/www
@@ -186,7 +187,6 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [Bootstrap] foundation. Adjust to your tastes.
 
 
-[Ghost]: http://ghost.org
 [post-receive-hooks]: https://help.github.com/articles/post-receive-hooks
 [Markdown]: http://en.wikipedia.org/wiki/Markdown
 [jquery-boilerplate]: https://github.com/jquery-boilerplate
@@ -211,3 +211,5 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [OpenResty]: http://openresty.org
 [LUA]: http://www.lua.org/about.html
 [openresty.conf]: https://raw2.github.com/markc/lua/master/openresty.conf
+[openresty.build]: https://raw2.github.com/markc/lua/master/openresty.build
+[markc/lua]: https://github.com/markc/lua
