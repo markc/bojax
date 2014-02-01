@@ -2,9 +2,9 @@
 
 # BoJAX
 
-A very simple static blog system based on **Bo**otstrap and A**JAX** using an
-optional Git(hub) backend to manage a website, which can also act as a backup.
-The primary goals of this project are to provide...
+A very simple static blog system based on __Bo__otstrap and A__JAX__ using
+an optional Git(hub) backend to manage a website, which can also act as a
+backup. The primary goals of this project are to provide...
 
 - a basic Bootstrap mobile-first interface
 - a totally AJAX/pushState driven `single page application`
@@ -18,37 +18,53 @@ The primary goals of this project are to provide...
 
 ## Installation
 
-To install just [clone this repo] or [download and extract] the zipfile and
-point your web server to it's directory, zero setup.
+To install just [clone this repo] or [download and extract] the zipfile
+and point your web server to it's directory, zero setup.
 
     # on webserver
     cd /var/www
-    git clone https://github.com/markc/bojax
+    git clone https://github.com/markc/bojax bojax.net
 
-A simple configuration snippet for `nginx` could be something like this...
+A simple configuration snippet for `nginx` could be something like this,
+using **bojax.net** as an example domainname...
 
     server {
-      server_name  bojax.example.com;
-      root         /var/www/bojax/;
-      location     / { try_files $uri $uri/ /index.html; }
+      port              80; # or 8080 for testing
+      server_name       bojax.net; # or localhost for testing
+      root              /var/www/bojax.net;
+      location          / { try_files $uri $uri/ /index.html; }
     }
 
-which would force all the non-existent numeric short-urls back to the
-index.html file and provide deep linking. If using Github then it's
-[post-receive-hooks] feature can be used to auto update a website but
-then some kind of PHP or server side scripting is required so to keep it
-ultra simple `rsync` called from a local `.git/hooks/post-commit` hook
-can be used instead.
+
+The localstion try_files line forces all the non-existent urls back to the
+index.html file so they can be resolved by the [bojax.js] jQuery plugin and
+provide bookmarking of these virtual URLs. The reason for the short numeric
+URLs is so they are indeed short and easy to paste into emails or other blogs
+posts. Non-numeric URLs are reserved for non-Markdown based LUA links. A more
+complete `nginx.conf` example is available as [openresty.conf].
+
+
+## Auto Update Remote Site
+
+If using Github then it's [post-receive-hooks] feature can be used to auto
+update a website, but then some kind of PHP or server side scripting is
+required, so to keep it ultra simple, `rsync` called from a local Git repo
+as a `.git/hooks/post-commit` hook can be used instead...
 
     #!/bin/sh
-    rsync -aq ./ remote_site:/var/www/bojax --del --exclude='.git'
-    ssh -t remote_site sudo -i nginx -s reload
+    rsync -av ./ bojax.net:var/www/bojax.net --del --exclude='.git'
+    ssh -t bojax.net 'bash -ic nrestart'
 
-Make sure you `chmod +x .git/hooks/post-commit` and the `./` path will
-need to be a full path to your repo if you execute a `git commit/push`
-from outside of your git repo. `remote_site:` assumes your SSH keys are
-setup for the remote server and your `~/.ssh/config` is configured
-appropriately...
+where `nrestart` is a shell alias on the remote server...
+
+    alias nstart='sudo /home/admin/bin/nginx'
+    alias nstop='sudo kill `cat /home/admin/tmp/nginx.pid`'
+    alias nrestart='nstop;nstart'
+
+Make sure you `chmod +x .git/hooks/post-commit` and the `./` path will need
+to be a full path to your repo if you execute a `git commit/push` from
+outside of your git repo. `remote_site:` assumes your SSH keys are setup for
+the remote server and your `~/.ssh/config` is configured appropriately...
 
     Host remote_site
       User admin
@@ -194,3 +210,4 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [GFM]: https://help.github.com/articles/github-flavored-markdown
 [OpenResty]: http://openresty.org
 [LUA]: http://www.lua.org/about.html
+[openresty.conf]: https://raw2.github.com/markc/lua/master/openresty.conf
