@@ -2,13 +2,14 @@
 
 # BoJAX
 
-A very simple static blog system based on **Bootstrap and AJAX** using an
-optional Git (or [GitHub]) backend to manage a website, which can also act
-as a backup. The primary goals of this project are to provide...
+_A very simple static blog system based on **Bootstrap and AJAX** using an
+optional Git (or [GitHub]) backend to manage a website._
+
+The primary goal of this project is to provide...
 
 - a basic Bootstrap **mobile-first** interface
-- a fully AJAX/pushState driven `single page application`
-- short tiny numeric URLs for posts by default
+- an AJAX/pushState driven `single page application`
+- short numeric bookmarkable URLs for posts by default
 - modern HTML5/CSS3 attributes (no IE6/7/8/9 support)
 - will run on as little as a 64Mb VPS or LXC container
 - no PHP or server side language or database required
@@ -37,11 +38,12 @@ using **bojax.net** as an example domainname...
     }
 
 
-The localstion try_files line forces all the non-existent urls back to the
-index.html file so they can be resolved by the [bojax.js] jQuery plugin and
-provide bookmarking of these virtual URLs. The reason for the short numeric
-URLs is so they are indeed short and easy to paste into emails or other blogs
-posts. Non-numeric URLs are reserved for non-Markdown based LUA links. A more
+The location try_files line forces all the non-existent urls back to
+`index.html` so they can be resolved by the [lib/js/bojax.js] jQuery plugin
+and provide bookmarking of these virtual URLs. The reason for the short
+numeric URLs is so they are indeed short and easy to paste into emails or
+other blogs posts instead of using some 3rd party short-URL service.
+Non-numeric URLs are reserved for non-Markdown based LUA links. A more
 complete `nginx.conf` example is available as [openresty.conf].
 
 
@@ -54,7 +56,7 @@ as a `.git/hooks/post-commit` hook can be used instead...
 
     #!/bin/sh
     rsync -av ./ bojax.net:var/www/bojax.net --del --exclude='.git'
-    ssh -t bojax.net 'bash -ic nrestart'
+    ssh -t bojax.net 'bash +m -ic nrestart'
 
 where `nrestart` is a shell alias on the remote server...
 
@@ -62,16 +64,17 @@ where `nrestart` is a shell alias on the remote server...
     alias nstop='sudo kill `cat /home/admin/tmp/nginx.pid`'
     alias nrestart='nstop;nstart'
 
-Make sure you `chmod +x .git/hooks/post-commit` and the `./` path will need
-to be a full path to your repo if you execute a `git commit/push` from
-outside of your git repo. `remote_site:` assumes your SSH keys are setup for
-the remote server and your `~/.ssh/config` is configured appropriately...
+Make sure you `chmod +x .git/hooks/post-commit` and the `./` rsync source
+path will need to be a full path to your repo if you execute a
+`git commit/push` from outside of your git repo. `bojax.net:` assumes your
+SSH keys are setup for the remote server and your `~/.ssh/config` is
+configured appropriately (again, change `bojax.net` to your domainname)...
 
-    Host remote_site
+    Host bojax.net
       User admin
       Port 2222
-      Hostname 12.34.45.67
-      IdentityFile ~/.ssh/remote_site_key
+      Hostname 12.34.56.78
+      IdentityFile ~/.ssh/bojax.net.key
 
 
 ## How To Create A New Post
@@ -106,8 +109,9 @@ between the frontpage summaries. Here is a full frontpage summary example...
     ---
 
 So clicking on the "Happy New Year" heading will load in the contents of
-`lib/md/10.md` posting. Clicking on the site title will load back in the
-`lib/md/1.md` frontpage index which is particularly handy in mobile mode.
+`lib/md/10.md` posting. Then clicking on the site title again will go back
+to the `lib/md/1.md` frontpage index summary, which is particularly handy
+on a mobile touch device.
 
 Something like this shell snippet below can work out the filename of the
 next posting when executed from the root of the repo...
@@ -158,6 +162,7 @@ Without a fancy dynamic backend this is a bit of a bother and definitely a
 kludge but, it works, and yet again saves us from requiring that backend
 which has to be paid for with extra server resources.
 
+
 ## [index.html]
 
 Some titles and links need to be changed in the [index.html] page and comment
@@ -191,11 +196,11 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [Markdown]: http://en.wikipedia.org/wiki/Markdown
 [jquery-boilerplate]: https://github.com/jquery-boilerplate
 [jquery.ajaxable]: https://github.com/matheusgomesweb/jquery.ajaxable
-[clone this repo]: https://github.com/markc/bojax.git
+[clone this repo]: https://github.com/markc/bojax
 [download and extract]: https://github.com/markc/bojax/archive/master.zip
 [disqus]: http://disqus.com/websites
 [OpenResty Lua Examples]: https://github.com/markc/lua
-[Github]: https://github.commit
+[Github]: https://github.com
 [Bootstrap]: http://getbootstrap.com
 [index.html]: https://raw2.github.com/markc/bojax/master/index.html
 [lib/css/style.css]: https://raw2.github.com/markc/bojax/master/lib/css/style.css
@@ -213,3 +218,4 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [openresty.conf]: https://raw2.github.com/markc/lua/master/openresty.conf
 [openresty.build]: https://raw2.github.com/markc/lua/master/openresty.build
 [markc/lua]: https://github.com/markc/lua
+[Ghost]: https://ghost.org
