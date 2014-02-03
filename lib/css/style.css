@@ -187,12 +187,12 @@ img[alt=halfsize] {
 
   #content h1 { font-size: 2em; }
   #content h6 { font-size: 0.9em; }
-  #content pre code,
   #content code,
   #content pre,
   #content ul,
-  #content p {
-    font-size: 1em;
+  #content p { font-size: 1em; }
+  #content pre code,
+  #content pre {
     overflow-x: auto;
     white-space: pre;
     word-break: normal;
