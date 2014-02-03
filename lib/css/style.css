@@ -160,13 +160,13 @@ body {
 
 #content table { width: 100%; }
 
-img[alt=Thumbnail] {
+img[alt=thumbnail] {
   float: right;
   max-width: 120px;
   margin-left: 0.5em;
 }
 
-img[alt=FullSize] {
+img[alt=halfsize] {
   max-width: 800px;
   margin: 0.5em auto;
   max-height: 360px;

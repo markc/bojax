@@ -127,7 +127,7 @@ the special [lib/md/1.md] frontpage must remain as the main index.
 
 Image handling is a bit of a hack but the first attempt seems to mostly work
 by abusing the [marked] script and its [GFM] extension for tables. Using the
-example from the [/10] post, the first row (with FullSize) defines the image
+example from the [/10] post, the first row (with halfsize) defines the image
 itself wrapped inside a link, the 2nd row says to center this table column
 and the 3rd row is a comment in italics. The `[2]` becomes the `src` of the
 image and `[1]` becomes a direct link to the image so it can be viewed in
@@ -135,32 +135,42 @@ it's original form and downloaded via the RMB browser menu.
 
     # [ownCloud Is Too Heavy]
 
-    |[![FullSize][2]][1]|
+    |[![halfsize][2]][1]|
     |:---:|
     | _ownCloud Android app config screen_ |
 
     (posting content)
 
-    [1]: http://u2.renta.net/lib/img/n5-owncloud.jpg
-    [2]: /lib/img/n5-owncloud.jpg
+    [1]: http://bojax.net/lib/img/n5-owncloud.jpg
+    [2]: http://bojax.net/lib/img/n5-owncloud-thumbnail.jpg
 
 The above is for the actual posting page, for the summary in the index page
 we want a thumbnail that also links to the actual post. For this we use the
 below construct where the image and it's link are above the main heading and
 the `n5-owncloud` reference links to the actual image (which could be offsite).
 
-    [![Thumbnail][n5-owncloud]][10]
+    [![thumbnail][n5-owncloud]][10]
 
     # [ownCloud Is Too Heavy]
 
     (posting content)
 
-    [n5-owncloud]: /lib/img/n5-owncloud.jpg
+    [n5-owncloud]: http://bojax.net/lib/img/n5-owncloud.jpg
     [10]: /10
 
 Without a fancy dynamic backend this is a bit of a bother and definitely a
 kludge but, it works, and yet again saves us from requiring that backend
 which has to be paid for with extra server resources.
+
+You have to manually create thumbnail and halfsize images if you care about
+the download size on the front and posting pages. Use a max-width of 120px
+for thumbnails and max-width of 800px or max-height of 640px (which ever is
+less) for the halfsize images to be consistant. An example listing of the
+images from the [/8] posting is...
+
+    -rw-r--r-- 1 admin daemon   66631 Feb  3 13:02 double-rainbow-halfsize.jpg
+    -rw-r--r-- 1 admin daemon    9861 Feb  3 12:37 double-rainbow-thumbnail.jpg
+    -rw-r--r-- 1 admin daemon 2147488 Jan 29 19:44 double-rainbow.jpg
 
 
 ## [index.html]
