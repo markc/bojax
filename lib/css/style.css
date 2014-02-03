@@ -59,14 +59,18 @@ body {
   margin: 1.6rem 0 0 0;
 }
 
+#content pre code,
 #content pre {
-  font-size: 1.1em;
-  line-height: 1.6em;
-  margin: 1em 0;
   overflow-x: auto;
   white-space: pre;
   word-break: normal;
   word-wrap: normal;
+}
+
+#content pre {
+  font-size: 1.1em;
+  line-height: 1.6em;
+  margin: 1em 0;
 }
 
 #content code {
@@ -191,13 +195,6 @@ img[alt=halfsize] {
   #content pre,
   #content ul,
   #content p { font-size: 1em; }
-  #content pre code,
-  #content pre {
-    overflow-x: auto;
-    white-space: pre;
-    word-break: normal;
-    word-wrap: normal;
-  }
   img[alt=thumbnail] { max-width: 96px; }
   img[alt=halfsize] { width: 100%; }
 }
