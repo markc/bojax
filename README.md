@@ -135,14 +135,14 @@ it's original form and downloaded via the RMB browser menu.
 
     # [ownCloud Is Too Heavy]
 
-    |[![halfsize][2]][1]|
+    |[![halfsize][1]][2]|
     |:---:|
     | _ownCloud Android app config screen_ |
 
     (posting content)
 
-    [1]: http://bojax.net/lib/img/n5-owncloud.jpg
-    [2]: http://bojax.net/lib/img/n5-owncloud-thumbnail.jpg
+    [1]: http://bojax.net/lib/img/n5-owncloud-halfsize.jpg
+    [2]: http://bojax.net/lib/img/n5-owncloud.jpg
 
 The above is for the actual posting page, for the summary in the index page
 we want a thumbnail that also links to the actual post. For this we use the
@@ -155,7 +155,7 @@ the `n5-owncloud` reference links to the actual image (which could be offsite).
 
     (posting content)
 
-    [n5-owncloud]: http://bojax.net/lib/img/n5-owncloud.jpg
+    [n5-owncloud]: http://bojax.net/lib/img/n5-owncloud-thumbnail.jpg
     [10]: /10
 
 Without a fancy dynamic backend this is a bit of a bother and definitely a
@@ -164,13 +164,13 @@ which has to be paid for with extra server resources.
 
 You have to manually create thumbnail and halfsize images if you care about
 the download size on the front and posting pages. Use a max-width of 120px
-for thumbnails and max-width of 800px or max-height of 640px (which ever is
+for thumbnails and max-width of 640px or max-height of 360px (which ever is
 less) for the halfsize images to be consistant. An example listing of the
-images from the [/8] posting is...
+images from the [/10] posting is...
 
-    -rw-r--r-- 1 admin daemon   66631 Feb  3 13:02 double-rainbow-halfsize.jpg
-    -rw-r--r-- 1 admin daemon    9861 Feb  3 12:37 double-rainbow-thumbnail.jpg
-    -rw-r--r-- 1 admin daemon 2147488 Jan 29 19:44 double-rainbow.jpg
+    -rw-rw-r-- 1 admin daemon  11212 Feb  3 13:44 n5-owncloud-halfsize.jpg
+    -rw-rw-r-- 1 admin daemon   5149 Feb  3 13:44 n5-owncloud-thumbnail.jpg
+    -rw-rw-r-- 1 admin daemon 109344 Feb  3 13:44 n5-owncloud.jpg
 
 
 ## [index.html]

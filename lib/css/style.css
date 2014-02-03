@@ -167,7 +167,7 @@ img[alt=thumbnail] {
 }
 
 img[alt=halfsize] {
-  max-width: 800px;
+  max-width: 640px;
   margin: 0.5em auto;
   max-height: 360px;
 }
