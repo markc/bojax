@@ -3,3 +3,4 @@ lib/md/.1.md.bkp
 lib/img/
 !lib/img/favicon.ico
 .htpasswd
+.htdigest
