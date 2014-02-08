@@ -167,7 +167,7 @@ body {
 img[alt=thumbnail] {
   float: right;
   margin-left: 0.5em;
-  max-width: 120px;
+  max-width: 192px;
 }
 
 img[alt=halfsize] {
