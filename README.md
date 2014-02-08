@@ -56,7 +56,7 @@ as a `.git/hooks/post-commit` hook can be used instead...
 
     #!/bin/sh
     rsync -av ./ bojax.net:var/www/bojax.net --del --exclude='.git'
-    ssh -t bojax.net '/home/admin/bin/nrestart'
+    ssh -t -t bojax.net '/home/admin/bin/nrestart'
 
 where `nrestart` is a shell script on the remote server...
 
