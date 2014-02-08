@@ -56,9 +56,14 @@ as a `.git/hooks/post-commit` hook can be used instead...
 
     #!/bin/sh
     rsync -av ./ bojax.net:var/www/bojax.net --del --exclude='.git'
-    ssh -t bojax.net 'bash +m -ic nrestart'
+    ssh -t bojax.net '/home/admin/bin/nrestart'
 
-where `nrestart` is a shell alias on the remote server...
+where `nrestart` is a shell script on the remote server...
+
+    #!/bin/sh
+    sudo kill `cat /home/admin/tmp/nginx.pid` && sudo /home/admin/bin/nginx
+
+and these aliases are also handy for the admin user...
 
     alias nstart='sudo /home/admin/bin/nginx'
     alias nstop='sudo kill `cat /home/admin/tmp/nginx.pid`'
@@ -86,11 +91,11 @@ with a friendly date and category which is followed by a blank line and
 
     ###### 1 January 2014 on Personal Blog
 
-    # [Happy New Year]
+    # [Double Rainbow]
 
 This is followed, after another blank line, by the content of the post in
 Markdown format. Name the file `digit.md` where `digit` is the next higher
-number in the `lib/md/` folder and link to it as `slash + digit` (ie; /10).
+number in the `lib/md/` folder and link to it as `slash + digit` (ie; /5).
 
 For now the initial frontpage index has to be created by hand so copy the
 top 2 `######` and `#` headings and the **first paragraph** and paste them
@@ -100,16 +105,16 @@ between the frontpage summaries. Here is a full frontpage summary example...
 
     ###### 1 January 2014 on Personal Blog
 
-    # [Happy New Year]
+    # [Double Rainbow]
 
-    Hello everyone, I hope you have a very happy year ahead! :-)
+    (posting summary)
 
-    [Happy New Year]: /10
+    [Double Rainbow]: /5
 
     ---
 
 So clicking on the "Happy New Year" heading will load in the contents of
-`lib/md/10.md` posting. Then clicking on the site title again will go back
+`lib/md/5.md` posting. Then clicking on the site title again will go back
 to the `lib/md/1.md` frontpage index summary, which is particularly handy
 on a mobile touch device.
 
@@ -127,50 +132,54 @@ the special [lib/md/1.md] frontpage must remain as the main index.
 
 Image handling is a bit of a hack but the first attempt seems to mostly work
 by abusing the [marked] script and its [GFM] extension for tables. Using the
-example from the [/10] post, the first row (with halfsize) defines the image
+example from the [/6] post, the first row (with halfsize) defines the image
 itself wrapped inside a link, the 2nd row says to center this table column
 and the 3rd row is a comment in italics. The `[2]` becomes the `src` of the
 image and `[1]` becomes a direct link to the image so it can be viewed in
 it's original form and downloaded via the RMB browser menu.
 
-    # [ownCloud Is Too Heavy]
+    # [Double Rainbow]
 
     |[![halfsize][1]][2]|
     |:---:|
-    | _ownCloud Android app config screen_ |
+    | _Double Rainbow from Moana Park, QLD, AU_ |
 
     (posting content)
 
-    [1]: http://bojax.net/lib/img/n5-owncloud-halfsize.jpg
-    [2]: http://bojax.net/lib/img/n5-owncloud.jpg
+    [Double Rainbow]: /1
+    [1]: http://markconstable.com/lib/img/double_rainbow_halfsize.jpg
+    [2]: http://markconstable.com/lib/img/double_rainbow.jpg
 
 The above is for the actual posting page, for the summary in the index page
 we want a thumbnail that also links to the actual post. For this we use the
 below construct where the image and it's link are above the main heading and
 the `n5-owncloud` reference links to the actual image (which could be offsite).
 
-    [![thumbnail][n5-owncloud]][10]
+    ###### 1 January 2014 on Personal Blog
 
-    # [ownCloud Is Too Heavy]
+    [![thumbnail][double_rainbow]][5]
+
+    # [Double Rainbow]
 
     (posting content)
 
-    [n5-owncloud]: http://bojax.net/lib/img/n5-owncloud-thumbnail.jpg
-    [10]: /10
+    [Double Rainbow]: /5
+    [double_rainbow]: http://markconstable.com/lib/img/double_rainbow_thumbnail.jpg
+    [5]: /5
 
 Without a fancy dynamic backend this is a bit of a bother and definitely a
 kludge but, it works, and yet again saves us from requiring that backend
-which has to be paid for with extra server resources.
+to do the heavy lifting.
 
 You have to manually create thumbnail and halfsize images if you care about
-the download size on the front and posting pages. Use a max-width of 120px
+the download size on the front and posting pages. Use a max-width of 192px
 for thumbnails and max-width of 640px or max-height of 360px (which ever is
 less) for the halfsize images to be consistant. An example listing of the
-images from the [/10] posting is...
+images from the [/6] posting is...
 
-    -rw-rw-r-- 1 admin daemon  11212 Feb  3 13:44 n5-owncloud-halfsize.jpg
-    -rw-rw-r-- 1 admin daemon   5149 Feb  3 13:44 n5-owncloud-thumbnail.jpg
-    -rw-rw-r-- 1 admin daemon 109344 Feb  3 13:44 n5-owncloud.jpg
+    -rw-r--r-- 1 admin daemon 2147488 Dec 14 03:10 double_rainbow.jpg
+    -rw-r--r-- 1 admin daemon   20191 Feb  7 13:47 double_rainbow_halfsize.jpg
+    -rw-r--r-- 1 admin daemon    8957 Feb  7 13:47 double_rainbow_thumbnail.jpg
 
 
 ## [index.html]
@@ -220,7 +229,7 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [lib/md/2.md]: https://raw2.github.com/markc/bojax/master/lib/md/2.md
 [lib/md/3.md]: https://raw2.github.com/markc/bojax/master/lib/md/3.md
 [lib/md/4.md]: https://raw2.github.com/markc/bojax/master/lib/md/4.md
-[/10]: https://raw2.github.com/markc/bojax/master/lib/md/10.md
+[/6]: https://raw2.github.com/markc/bojax/master/lib/md/6.md
 [marked]: https://github.com/chjj/marked
 [GFM]: https://help.github.com/articles/github-flavored-markdown
 [OpenResty]: http://openresty.org
