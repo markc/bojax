@@ -133,7 +133,7 @@ the special [lib/md/1.md] frontpage must remain as the main index.
 
 Image handling is a bit of a hack but the first attempt seems to mostly work
 by abusing the [marked] script and its [GFM] extension for tables. Using the
-example from the [/6] post, the first row (with halfsize) defines the image
+example from the [/5] post, the first row (with halfsize) defines the image
 itself wrapped inside a link, the 2nd row says to center this table column
 and the 3rd row is a comment in italics. The `[2]` becomes the `src` of the
 image and `[1]` becomes a direct link to the image so it can be viewed in
@@ -177,7 +177,7 @@ You have to manually create thumbnail and halfsize images if you care about
 the download size on the front and posting pages. Use a max-width of 192px
 for thumbnails and max-width of 640px or max-height of 360px (which ever is
 less) for the halfsize images to be consistant. An example listing of the
-images from the [/6] posting is...
+images from the [/5] posting is...
 
     -rw-r--r-- 1 admin daemon 2147488 Dec 14 03:10 double_rainbow.jpg
     -rw-r--r-- 1 admin daemon   20191 Feb  7 13:47 double_rainbow_halfsize.jpg
@@ -231,7 +231,7 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [lib/md/2.md]: https://raw2.github.com/markc/bojax/master/lib/md/2.md
 [lib/md/3.md]: https://raw2.github.com/markc/bojax/master/lib/md/3.md
 [lib/md/4.md]: https://raw2.github.com/markc/bojax/master/lib/md/4.md
-[/6]: https://raw2.github.com/markc/bojax/master/lib/md/6.md
+[/5]: https://raw2.github.com/markc/bojax/master/lib/md/5.md
 [marked]: https://github.com/chjj/marked
 [GFM]: https://help.github.com/articles/github-flavored-markdown
 [OpenResty]: http://openresty.org
