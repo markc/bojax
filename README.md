@@ -37,7 +37,6 @@ using **bojax.net** as an example domainname...
       location          / { try_files $uri $uri/ /index.html; }
     }
 
-
 The location try_files line forces all the non-existent urls back to
 `index.html` so they can be resolved by the [lib/js/bojax.js] jQuery plugin
 and provide bookmarking of these virtual URLs. The reason for the short
@@ -57,17 +56,19 @@ as a `.git/hooks/post-commit` hook can be used instead...
     #!/bin/sh
     rsync -av ./ bojax.net:var/www/bojax.net --del --exclude='.git'
     ssh -t -t bojax.net '/home/admin/bin/nrestart'
+    echo
+    echo "Remember to 'git push'if using a remote git repo"
 
 where `nrestart` is a shell script on the remote server...
 
     #!/bin/sh
     sudo kill `cat /home/admin/tmp/nginx.pid` && sudo /home/admin/bin/nginx
 
-and these aliases are also handy for the admin user...
+and these aliases are also handy for the admin user (assuming OpenResty
+has been built and installed under the admin user account)...
 
     alias nstart='sudo /home/admin/bin/nginx'
     alias nstop='sudo kill `cat /home/admin/tmp/nginx.pid`'
-    alias nrestart='nstop;nstart'
 
 Make sure you `chmod +x .git/hooks/post-commit` and the `./` rsync source
 path will need to be a full path to your repo if you execute a
@@ -113,10 +114,10 @@ between the frontpage summaries. Here is a full frontpage summary example...
 
     ---
 
-So clicking on the "Happy New Year" heading will load in the contents of
-`lib/md/5.md` posting. Then clicking on the site title again will go back
-to the `lib/md/1.md` frontpage index summary, which is particularly handy
-on a mobile touch device.
+So clicking on the "Double Rainbow" heading will load in the contents of
+`lib/md/5.md` posting. Then. when viewing the actual posting. clicking on
+the site title again will go back to the `lib/md/1.md` frontpage index
+summary, which is particularly handy on a mobile touch device.
 
 Something like this shell snippet below can work out the filename of the
 next posting when executed from the root of the repo...
@@ -153,7 +154,8 @@ it's original form and downloaded via the RMB browser menu.
 The above is for the actual posting page, for the summary in the index page
 we want a thumbnail that also links to the actual post. For this we use the
 below construct where the image and it's link are above the main heading and
-the `n5-owncloud` reference links to the actual image (which could be offsite).
+the `double_rainbow` reference links to the actual image, which could be
+offsite so they are still visible, for instance, in a Github repo.
 
     ###### 1 January 2014 on Personal Blog
 
@@ -168,8 +170,8 @@ the `n5-owncloud` reference links to the actual image (which could be offsite).
     [5]: /5
 
 Without a fancy dynamic backend this is a bit of a bother and definitely a
-kludge but, it works, and yet again saves us from requiring that backend
-to do the heavy lifting.
+kludge but, it works, and saves us from requiring backend server side scripts
+(like PHP which we are trying to avoid) to do the heavy lifting.
 
 You have to manually create thumbnail and halfsize images if you care about
 the download size on the front and posting pages. Use a max-width of 192px
