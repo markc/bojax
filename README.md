@@ -240,3 +240,7 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [openresty.build]: https://raw2.github.com/markc/lua/master/openresty.build
 [markc/lua]: https://github.com/markc/lua
 [Ghost]: https://ghost.org
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/markc/bojax/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
