@@ -27,6 +27,23 @@ point your web server to it's directory, zero setup. A build script for
     cd /var/www
     git clone https://github.com/markc/bojax bojax.net
 
+If you want to also try the Lua scripts then...
+
+    cd lib
+    git clone https://github.com/markc/lua
+
+otherwise comment out or remove the "Testing Lua" menu option in index.html...
+
+    <!-- comment out this section if lib/lua example does not exist -->
+    (remove everything between the above and below comments markers)
+    <!-- end lib/lua comment section -->
+
+You will also want to update the `/3` Contact form and add your email address
+in the Javascript section at the bottom and also remove the `/4` Comments link
+or go to [disqus.com] and set up your own comments thread.
+
+    <!-- <li><a href="/4"><i class="fa fa-comment"></i> Comments</a></li> -->
+
 A simple configuration snippet for `nginx` could be something like this,
 using **bojax.net** as an example domainname...
 
@@ -240,7 +257,7 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [openresty.build]: https://raw2.github.com/markc/lua/master/openresty.build
 [markc/lua]: https://github.com/markc/lua
 [Ghost]: https://ghost.org
-
+[disqus.com]: http:disqus.com
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/markc/bojax/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
