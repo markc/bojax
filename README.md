@@ -114,13 +114,13 @@ between the frontpage summaries. Here is a full frontpage summary example...
 
     ---
 
-So clicking on the "Double Rainbow" heading will load in the contents of
-`lib/md/5.md` posting. Then. when viewing the actual posting. clicking on
+So clicking on the "Double Rainbow" heading will load in the contents of the
+`lib/md/5.md` posting. Then, when viewing the actual posting, clicking on
 the site title again will go back to the `lib/md/1.md` frontpage index
-summary, which is particularly handy on a mobile touch device.
+summary which is particularly handy on a mobile touch device.
 
-Something like this shell snippet below can work out the filename of the
-next posting when executed from the root of the repo...
+Something like this shell snippet below can work out the filename of the next
+posting when executed from the root of the repo...
 
     echo "lib/md/$(($(/bin/ls -1v lib/md | tail -n 1 | cut -d. -f 1)+1)).md"
 
