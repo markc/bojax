@@ -6,7 +6,7 @@
     <link>http://bojax.net/</link>
     <description>Yet another personal blog</description>
     <lastBuildDate>Mon, 24 Feb 2014 16:57:24 GMT</lastBuildDate>
-    <atom:link href="http://bojax.net/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bojax.net/index.rss" rel="self" type="application/rss+xml" />
 
     <item>
       <title>MultiHost Setup</title>
@@ -135,7 +135,7 @@ ownCloud provides an excellent model to aim for in Lua. RIP ownCloud.</p>
 
 <p><a href="http://en.wikipedia.org/wiki/Double_rainbow#Variations">Secondary rainbows</a>
 are caused by a double reflection of sunlight inside the
-raindrops, and appear at an angle of 50°. As a result of the second
+raindrops, and appear at an angle of 50 degrees. As a result of the second
 reflection, the colours of a secondary rainbow are inverted compared to the
 primary bow, with blue on the outside and red on the inside. The secondary
 rainbow is fainter than the primary because more light escapes from two
