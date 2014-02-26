@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BoJAX</title>
+    <language>en-us</language>
+    <link>http://bojax.net/</link>
+    <description>Yet another personal blog</description>
+    <lastBuildDate>Mon, 24 Feb 2014 16:57:24 GMT</lastBuildDate>
+    <atom:link href="http://bojax.net/index.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>MultiHost Setup</title>
+      <link>http://bojax.net/8</link>
+      <guid>http://bojax.net/8</guid>
+      <pubDate>Sun, 23 Feb 2014 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+<h6>8 February 2014 on Personal Blog</h6>
+<h1>MultiHost Setup</h1>
+
+<p>The first <b>nginx.conf</b> file was orientated towards running a few
+different hosts within the <b>/home/admin/var/www</b> area and was easy for
+a single <b>admin</b> user to manage but it did not allow for different
+users to safely manage each vhost with their own uid:gid. So now the current
+setup uses <b>/etc/passwd</b> based users each with their own website within
+their own homedir. The current example setup at <a
+href="http://bojax.net">bojax.net</a> also provides for <b>ssh</b>,
+<b>sftp</b> and <b>rsync</b> access to each users web area as well as <a
+href="http://en.wikipedia.org/wiki/Chroot">chroots</a> the user so they
+cannot see the rest of the system let alone other users sites. The use of
+<b>ssh</b> and friends replaces <b>webdav</b> support which will most like
+be removed altogether.</p>
+
+<p>The new system setup uses <b>u[0-9]</b> usernames where the <b>[0-9]</b>
+number matches the assigned <b>uid</b> (3rd column below) so they can be
+auto generated using the next higher uid. The users homedir is set within a
+root owned <b>/home/ns</b> area so that the sshd <b>ChrootDirectory</b> can
+work and lock users into their own homedir when they ssh, sftp or rsync into
+their remote servers web area.</p>
+<pre>
+    admin:x:1000:1::/home/admin:/bin/bash
+    u1001:x:1001:1::/home/ns/bojax.net:/bin/sh
+    u1002:x:1002:1::/home/ns/markconstable.com:/bin/sh
+</pre>
+<p>A default <b>admin</b> user is always set up with a uid of 1000 and is
+not subject to being chrooted so this admin user has access to the
+<b>sudo</b> command to adequately manage the server. To provide the chroot
+for u* users we use this stanza appended to the end of the systems
+<b>/etc/ssh/sshd_config</b> file...</p>
+<pre>
+    #Subsystem sftp /usr/lib/openssh/sftp-server
+    Subsystem sftp internal-sftp
+
+    Match User u*
+      ChrootDirectory %h
+      X11Forwarding no
+      AllowTcpForwarding no
+</pre>
+<p>so any username that starts with a <b>u</b> gets chrooted to their
+domainnamed homedir. This <b>nginx</b> config snippet below then selects the
+correct users website without requiring a separate config file for each
+vhost...</p>
+<pre>
+    server {
+      listen       80;
+      server_name  ~^(?&lt;domain&gt;.+)$;
+      root         /home/ns/$domain/var/www;
+      location     ~^/ { try_files $uri $uri/ /index.html; }
+    }
+</pre>
+<p>so browsing to [bojax.net], for example, will pull up the index.html file
+from the <b>/home/ns/bojax.net/var/www</b> folder.</p>
+
+<p>For each users homedir to be chroot'able it requires a few system
+utilities to run independently of the main operating system and fortunately
+the standard Ubuntu <b>busybox</b> package does most of the work with
+special statically compiled versions of <b>nano</b> (a simple console
+editor) and <b>rsync</b> added to compliment the various busybox utilities.
+It's dubious how useful direct ssh access to such a crippled system might be
+but it's worth exploring and the main point is that <b>sftp</b> and
+<b>rsync</b> access is indeed restricted to just this user login area.</p>
+
+<p>How to build, setup and manage this user chrooted system will be the
+subject of another post, perhaps another whole project. This is just an
+introduction to one variation of how BoJAX can be deployed on remote
+server.</p>
+]]></description>
+    </item>
+
+    <item>
+      <title>ownCloud Is Too Heavy</title>
+      <link>http://bojax.net/7</link>
+      <guid>http://bojax.net/7</guid>
+      <pubDate>Thu, 02 Jan 2014 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+<h6>30 January 2014 on Personal Blog</h6>
+<h1>ownCloud Is Too Heavy</h1>
+<img src="http://markconstable.com/lib/img/20140208_N5_ownCloud_thumbnail.jpg"/>
+
+<p>My recent experiments with using ownCloud on a small 128 Mb ram VPS for
+general file management shows that it is too slow on such a small server,
+even when using <b>nginx + php5-fpm</b> and the <b>SQLite</b> database
+backend. Using <b>apache + mod_php</b> and <b>MySQL</b> would be out of the
+question.</p>
+
+<p>The idea of being able to use the ownCloud Android app is appealing and
+it works well, even auto uploads photos from my Nexus 5, but general usage
+of ownCloud is just barely acceptable. This has led me to using <b>nginx +
+lua</b> via the <a href="http://openresty.org">OpenResty</a> project which
+bundles the standard nginx core plus lots of 3rd-party nginx modules as well
+as most of their external dependencies all in one package. So far the upside
+is that memory usage is way down on any PHP combination I've tried except
+perhaps using lighttpd in pure CGI mode (not fastcgi) so there is no daemon
+running to consume ram but the plain old-school CGI <i>launch process per
+invocation</i> is in itself too slow. The downside is learning both Lua, the
+language, and how it's applied inside the nginx server.</p>
+
+<p>So as much as I would like to deploy ownCloud everywhere it's just not
+feasible on lowend servers and hardware, and that is my goal. Unfortunately
+there is nothing remotely as good as ownCloud available for the OpenResty
+platform, nor any of the other superb PHP based apps, but at the very least
+ownCloud provides an excellent model to aim for in Lua. RIP ownCloud.</p>
+
+]]></description>
+    </item>
+
+    <item>
+      <title>Double Rainbow</title>
+      <link>http://bojax.net/5</link>
+      <guid>http://bojax.net/5</guid>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+<h6>1 January 2014 on Personal Blog</h6>
+<h1>Double Rainbow</h1>
+<img src="http://markconstable.com/lib/img/20131214_Double_Rainbow_thumbnail.jpg"/>
+
+<p><a href="http://en.wikipedia.org/wiki/Double_rainbow#Variations">Secondary rainbows</a>
+are caused by a double reflection of sunlight inside the
+raindrops, and appear at an angle of 50°. As a result of the second
+reflection, the colours of a secondary rainbow are inverted compared to the
+primary bow, with blue on the outside and red on the inside. The secondary
+rainbow is fainter than the primary because more light escapes from two
+reflections compared to one and because the rainbow itself is spread over a
+greater area of the sky. The dark area of unlit sky lying between the primary
+and secondary bows is called Alexander's band, after Alexander of Aphrodisias
+who first described it.</p>
+
+<h2>Twinned rainbow</h2>
+
+<p>Unlike a double rainbow which consists of two separate and concentric rainbow
+arcs, the very rare twinned rainbow appears as two rainbow arcs that split
+from a single base. The colours in the second bow, rather than reversing as
+in a double rainbow, appear in the same order as the primary rainbow. It is
+sometimes even observed in combination with a double rainbow. The cause of a
+twinned rainbow is the combination of different sizes of water drops falling
+from the sky. Due to air resistance, raindrops flatten as they fall, and
+flattening is more prominent in larger water drops. When two rain showers
+with different-sized raindrops combine, they each produce slightly different
+rainbows which may combine and form a twinned rainbow.[20]</p>
+
+<p>Until recently, scientists could only make an educated guess as to why a
+twinned rainbow does appear, even though extremely rarely. It was thought that
+most probably non-spherical raindrops produced one or both bows, with surface
+tension forces keeping small raindrops spherical, while large drops were
+flattened by air resistance; or that they might even oscillate between
+flattened and elongated spheroids.[21] However, in 2012 a new technique was
+used to simulate rainbows, enabling the accurate simulation of non-spherical
+particles. Besides twinned rainbows, this technique can also be used to
+simulate many different rainbow phenomena including double rainbows and
+supernumerary bows.</p>
+]]></description>
+    </item>
+<!--
+    <item>
+      <title></title>
+      <link>http://bojax.net/</link>
+      <guid>http://bojax.net/</guid>
+      <pubDate>Wed, 02 Jan 2014 00:00:00 +0000</pubDate>
+      <description><![CDATA[
+
+]]></description>
+    </item>
+-->
+  </channel>
+</rss>
