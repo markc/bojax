@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BoJAX</title>
     <language>en-us</language>
-    <link>http://bojax.net/</link>
-    <description>Yet another personal blog</description>
-    <lastBuildDate>Mon, 24 Feb 2014 16:57:24 GMT</lastBuildDate>
+    <link>http://bojax.net</link>
+    <description>BoJAX - Bootstrap/AJAX Demo Blog</description>
+    <lastBuildDate>Mon, 26 Feb 2014 16:57:24 GMT</lastBuildDate>
     <atom:link href="http://bojax.net/index.rss" rel="self" type="application/rss+xml" />
 
     <item>
+      <guid isPermaLink="false">8ffd1772-29be-4ffe-9f92-bcaec5afb0b7</guid>
       <title>MultiHost Setup</title>
       <link>http://bojax.net/8</link>
-      <guid>http://bojax.net/8</guid>
-      <pubDate>Sun, 23 Feb 2014 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 23 Feb 2014 00:00:01 GMT</pubDate>
       <description><![CDATA[
 <h6>8 February 2014 on Personal Blog</h6>
 <h1>MultiHost Setup</h1>
@@ -87,10 +87,10 @@ server.</p>
     </item>
 
     <item>
+      <guid isPermaLink="false">be56b15d-aa05-4f44-82a0-8bee48c6e509</guid>
       <title>ownCloud Is Too Heavy</title>
       <link>http://bojax.net/7</link>
-      <guid>http://bojax.net/7</guid>
-      <pubDate>Thu, 02 Jan 2014 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 02 Jan 2014 00:00:01 GMT</pubDate>
       <description><![CDATA[
 <h6>30 January 2014 on Personal Blog</h6>
 <h1>ownCloud Is Too Heavy</h1>
@@ -124,10 +124,10 @@ ownCloud provides an excellent model to aim for in Lua. RIP ownCloud.</p>
     </item>
 
     <item>
+      <guid isPermaLink="false">dfa7ef95-8f58-46e6-9802-25fdf8bbab46</guid>
       <title>Double Rainbow</title>
       <link>http://bojax.net/5</link>
-      <guid>http://bojax.net/5</guid>
-      <pubDate>Wed, 01 Jan 2014 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 01 Jan 2014 00:00:01 GMT</pubDate>
       <description><![CDATA[
 <h6>1 January 2014 on Personal Blog</h6>
 <h1>Double Rainbow</h1>
@@ -169,16 +169,18 @@ simulate many different rainbow phenomena including double rainbows and
 supernumerary bows.</p>
 ]]></description>
     </item>
+
 <!--
     <item>
+      <guid isPermaLink="false"></guid>
       <title></title>
-      <link>http://bojax.net/</link>
-      <guid>http://bojax.net/</guid>
-      <pubDate>Wed, 02 Jan 2014 00:00:00 +0000</pubDate>
+      <link></link>
+      <pubDate></pubDate>
       <description><![CDATA[
 
 ]]></description>
     </item>
 -->
+
   </channel>
 </rss>
