@@ -74,7 +74,7 @@ as a `.git/hooks/post-commit` hook can be used instead...
     rsync -av ./ bojax.net:var/www/bojax.net --del --exclude='.git'
     ssh -t -t bojax.net '/home/admin/bin/nrestart'
     echo
-    echo "Remember to 'git push'if using a remote git repo"
+    echo "Remember to 'git push' if using a remote git repo"
 
 where `nrestart` is a shell script on the remote server...
 
@@ -164,7 +164,7 @@ it's original form and downloaded via the RMB browser menu.
 
     (posting content)
 
-    [Double Rainbow]: /
+    [Double Rainbow]: /1
     [1]: http://markconstable.com/lib/img/20131214_Double_Rainbow_halfsize.jpg
     [2]: http://markconstable.com/lib/img/20131214_Double_Rainbow.jpg
 
