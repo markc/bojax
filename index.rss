@@ -63,13 +63,13 @@ be removed altogether.</p>
 <p>The new system setup uses <b>u[0-9]</b> usernames where the <b>[0-9]</b>
 number matches the assigned <b>uid</b> (3rd column below) so they can be
 auto generated using the next higher uid. The users homedir is set within a
-root owned <b>/home/ns</b> area so that the sshd <b>ChrootDirectory</b> can
+root owned <b>/home/u</b> area so that the sshd <b>ChrootDirectory</b> can
 work and lock users into their own homedir when they ssh, sftp or rsync into
 their remote servers web area.</p>
 <pre>
     admin:x:1000:1::/home/admin:/bin/bash
-    u1001:x:1001:1::/home/ns/bojax.net:/bin/sh
-    u1002:x:1002:1::/home/ns/markconstable.com:/bin/sh
+    u1001:x:1001:1::/home/u/bojax.net:/bin/sh
+    u1002:x:1002:1::/home/u/markconstable.com:/bin/sh
 </pre>
 <p>A default <b>admin</b> user is always set up with a uid of 1000 and is
 not subject to being chrooted so this admin user has access to the
@@ -93,12 +93,12 @@ vhost...</p>
     server {
       listen       80;
       server_name  ~^(?&lt;domain&gt;.+)$;
-      root         /home/ns/$domain/var/www;
+      root         /home/u/$domain/var/www;
       location     ~^/ { try_files $uri $uri/ /index.html; }
     }
 </pre>
 <p>so browsing to [bojax.net], for example, will pull up the index.html file
-from the <b>/home/ns/bojax.net/var/www</b> folder.</p>
+from the <b>/home/u/bojax.net/var/www</b> folder.</p>
 
 <p>For each users homedir to be chroot'able it requires a few system
 utilities to run independently of the main operating system and fortunately

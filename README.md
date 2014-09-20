@@ -164,7 +164,7 @@ it's original form and downloaded via the RMB browser menu.
 
     (posting content)
 
-    [Double Rainbow]: /1
+    [Double Rainbow]: /
     [1]: http://markconstable.com/lib/img/20131214_Double_Rainbow_halfsize.jpg
     [2]: http://markconstable.com/lib/img/20131214_Double_Rainbow.jpg
 
@@ -223,9 +223,9 @@ of code. It's based on [jquery-boilerplate] with a few clues borrowed from
 this jQuery plugin are most welcome.
 
 
-## [lib/css/style.css]
+## [lib/css/bojax.css]
 
-The main [lib/css/style.css] stylesheet is a mixture of some markup style
+The main [lib/css/bojax.css] stylesheet is a mixture of some markup style
 from the [Ghost] project plus a little [Github] styling on top of a
 [Bootstrap] foundation. Adjust to your tastes.
 
@@ -241,7 +241,7 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [Github]: https://github.com
 [Bootstrap]: http://getbootstrap.com
 [index.html]: https://raw2.github.com/markc/bojax/master/index.html
-[lib/css/style.css]: https://raw2.github.com/markc/bojax/master/lib/css/style.css
+[lib/css/bojax.css]: https://raw2.github.com/markc/bojax/master/lib/css/bojax.css
 [lib/js/bojax.js]: https://raw2.github.com/markc/bojax/master/lib/js/bojax.js
 [README.md]: https://raw2.github.com/markc/bojax/master/README.md
 [lib/md/1.md]: https://raw2.github.com/markc/bojax/master/lib/md/1.md
