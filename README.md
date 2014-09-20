@@ -165,8 +165,8 @@ it's original form and downloaded via the RMB browser menu.
     (posting content)
 
     [Double Rainbow]: /1
-    [1]: http://markconstable.com/lib/img/double_rainbow_halfsize.jpg
-    [2]: http://markconstable.com/lib/img/double_rainbow.jpg
+    [1]: http://markconstable.com/lib/img/20131214_Double_Rainbow_halfsize.jpg
+    [2]: http://markconstable.com/lib/img/20131214_Double_Rainbow.jpg
 
 The above is for the actual posting page, for the summary in the index page
 we want a thumbnail that also links to the actual post. For this we use the
@@ -183,7 +183,7 @@ offsite so they are still visible, for instance, in a Github repo.
     (posting content)
 
     [Double Rainbow]: /5
-    [double_rainbow]: http://markconstable.com/lib/img/double_rainbow_thumbnail.jpg
+    [double_rainbow]: http://markconstable.com/lib/img/20131214_Double_Rainbow_thumbnail.jpg
     [5]: /5
 
 Without a fancy dynamic backend this is a bit of a bother and definitely a
@@ -196,9 +196,9 @@ for thumbnails and max-width of 640px or max-height of 360px (which ever is
 less) for the halfsize images to be consistant. An example listing of the
 images from the [/5] posting is...
 
-    -rw-r--r-- 1 admin daemon 2147488 Dec 14 03:10 double_rainbow.jpg
-    -rw-r--r-- 1 admin daemon   20191 Feb  7 13:47 double_rainbow_halfsize.jpg
-    -rw-r--r-- 1 admin daemon    8957 Feb  7 13:47 double_rainbow_thumbnail.jpg
+    -rw-r--r-- 1 admin daemon 2147488 Dec 14 03:10 20131214_Double_Rainbow.jpg
+    -rw-r--r-- 1 admin daemon   20191 Feb  7 13:47 20131214_Double_Rainbow_halfsize.jpg
+    -rw-r--r-- 1 admin daemon    8957 Feb  7 13:47 20131214_Double_Rainbow_thumbnail.jpg
 
 
 ## [index.html]

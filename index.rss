@@ -10,10 +10,40 @@
 
     <item>
       <guid isPermaLink="false">8ffd1772-29be-4ffe-9f92-bcaec5afb0b7</guid>
-      <title>MultiHost Setup</title>
+      <title>Minor Updates</title>
       <link>http://bojax.net/8</link>
+      <pubDate>Sat, 20 Sep 2014 00:00:01 GMT</pubDate>
+      <description><![CDATA[
+
+<h6>20 September 2014 on Personal Blog</h6>
+<h1>Minor Updates</h1>
+
+<p>A few minor updates to the
+<a href="https://github.com/markc/bojax">github repo</a>.
+The extra RHS dropdown nav menu
+has been removed as it had nothing to do with this project. The LUA pages
+were part of another repo and depended on a non-standard nginx package with
+LUA bindings.</p>
+
+<p>It's really hard to develop sophisticated LUA replacements for so many PHP
+based web apps so I've gone back to plain old PHP. The CDN updates were...</p>
+
+<ul>
+  <li>jQuery to 2.1.1</li>
+  <li>Bootstrap to 3.2.0</li>
+  <li>FontAwesome to 4.2.0</li>
+</ul>
+
+]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">8ffd1772-29be-4ffe-9f92-bcaec5afb0b7</guid>
+      <title>MultiHost Setup</title>
+      <link>http://bojax.net/7</link>
       <pubDate>Sun, 23 Feb 2014 00:00:01 GMT</pubDate>
       <description><![CDATA[
+
+
 <h6>8 February 2014 on Personal Blog</h6>
 <h1>MultiHost Setup</h1>
 
