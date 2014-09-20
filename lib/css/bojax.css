@@ -1,0 +1,195 @@
+/* bojax/lib/css/bojax.css (C) 2013-2014 Mark Constable (AGPL-3.0) */
+
+body {
+  min-height: 1000px;
+}
+
+.container {
+  max-width: 800px;
+}
+
+#content {
+  border-bottom: #EBF2F6 1px solid;
+  color: #3A4145;
+  padding-bottom: 3em;
+  position: relative;
+}
+
+#content h1,
+#content h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin-top: 10px;
+  text-indent: -2px;
+}
+
+#content h1 a,
+#content h2 a {
+  color: #50585D;
+  text-decoration: none;
+}
+
+#content h1 {
+  font-size: 2.75em;
+}
+
+#content h2 {
+  border-bottom: solid 1px #eee;
+  font-size: 2em;
+  line-height: 1.7;
+  margin-top: 1em;
+}
+
+#content h6 {
+  color: #9EABB3;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  margin: 1em 0 -1em 0;
+}
+
+#content p,
+#content ul {
+  color: #3F3F3F;
+  font-family: 'Droid Serif', serif;
+  font-size: 1.25em;
+  line-height: 1.6em;
+  margin: 1.6rem 0 0 0;
+}
+
+#content pre code,
+#content pre {
+  overflow-x: auto;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+#content pre {
+  font-size: 1.1em;
+  line-height: 1.6em;
+  margin: 1em 0;
+}
+
+#content code {
+  font-size: 1.1em;
+}
+
+#content a {
+  color: #4F4F4F;
+  text-decoration: underline;
+  transition: color ease 0.3s;
+}
+
+#content a:hover {
+  color: #57A3E8;
+}
+
+#content hr {
+  margin-bottom: 0;
+  clear: both;
+}
+
+#content form {
+  margin: 1em 0;
+}
+
+#content:after {
+  background: #fff;
+  border-radius: 100%;
+  border: #E7EEF2 1px solid;
+  bottom: -0.5em;
+  box-shadow: #fff 0 0 0 0.5em;
+  content: "";
+  height: 1em;
+  left: 50%;
+  margin-left: -0.5em;
+  position: absolute;
+  width: 1em;
+}
+
+.pagination {
+  color: #9EABB3;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+  text-align: center;
+  width: 100%;
+}
+
+.site-footer {
+  background: #F7FAFB;
+  border-top: #EBF2F6 1px solid;
+  color: #BBC7CC;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+  line-height: 1.7em;
+  margin: 4em 0 0 0;
+  padding: 3em 0;
+  position: relative;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #BBC7CC;
+  text-decoration: underline;
+}
+
+.subscribe {
+  background: #fff;
+  border-radius: 50px;
+  border: #EBF2F6 1px solid;
+  height: 28px;
+  left: 50%;
+  line-height: 2.4rem;
+  margin-left: -15px;
+  position: absolute;
+  text-align: center;
+  top: -14px;
+  transition: box-shadow 0.5s;
+  width: 28px;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: 700px;
+  position: relative;
+  width: 80%;
+}
+
+#content table { width: 100%; }
+
+img[alt=thumbnail] {
+  float: right;
+  margin-left: 0.5em;
+  max-width: 192px;
+}
+
+img[alt=halfsize] {
+  margin: 0.5em auto;
+  max-height: 360px;
+  max-width: 640px;
+}
+
+.table th { background-color: #DDDDDD; }
+.lhs { width: 30%; background-color: #EEEEEE; font-weight: bold; }
+/*
+@media only screen and (max-width: 1366px) {
+
+  #content h1 { font-size: 2em; }
+  #content h6 { font-size: 0.9em; }
+  #content pre code,
+  #content p { font-size: 1em; }
+}
+*/
+@media only screen and (max-width: 639px) {
+
+  #content h1 { font-size: 2em; }
+  #content h6 { font-size: 0.9em; }
+  #content code,
+  #content pre,
+  #content ul,
+  #content p { font-size: 1em; }
+  img[alt=thumbnail] { max-width: 96px; }
+  img[alt=halfsize] { width: 100%; }
+}
