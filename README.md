@@ -13,7 +13,6 @@ The primary goal of this project is to provide...
 - modern HTML5/CSS3 attributes (no IE6/7/8/9 support)
 - will run on as little as a 64Mb VPS or LXC container
 - no PHP or server side scripting or database required
-- optional integration with [OpenResty] and [LUA] scripts
 
 
 ## Installation
@@ -188,7 +187,7 @@ offsite so they are still visible, for instance, in a Github repo.
 
 Without a fancy dynamic backend this is a bit of a bother and definitely a
 kludge but, it works, and saves us from requiring backend server side scripts
-(like PHP which we are trying to avoid) to do the heavy lifting.
+(like PHP) to do the heavy lifting.
 
 You have to manually create thumbnail and halfsize images if you care about
 the download size on the front and posting pages. Use a max-width of 192px
@@ -201,10 +200,9 @@ images from the [/5] posting is...
     -rw-r--r-- 1 admin daemon    8957 Feb  7 13:47 20131214_Double_Rainbow_thumbnail.jpg
 
 
-## [index.html]
+## [bojax.html]
 
-Some titles and links need to be changed in the [index.html] page and comment
-or remove the [OpenResty Lua Examples] if they are of no interest. The main
+Some titles and links need to be changed in the [index.html] page. The main
 frontpage index links to [lib/md/1.md] from the `navbar-brand` project
 title and must remain as such. `About` links to [lib/md/2.md] which in turn
 symlinks to this [README.md]. `Contact` links  to [lib/md/3.md] and is
@@ -237,7 +235,6 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [clone this repo]: https://github.com/markc/bojax
 [download and extract]: https://github.com/markc/bojax/archive/master.zip
 [disqus]: http://disqus.com/websites
-[OpenResty Lua Examples]: https://github.com/markc/lua
 [Github]: https://github.com
 [Bootstrap]: http://getbootstrap.com
 [index.html]: https://raw2.github.com/markc/bojax/master/index.html
@@ -251,11 +248,6 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [/5]: https://raw2.github.com/markc/bojax/master/lib/md/5.md
 [marked]: https://github.com/chjj/marked
 [GFM]: https://help.github.com/articles/github-flavored-markdown
-[OpenResty]: http://openresty.org
-[LUA]: http://www.lua.org/about.html
-[openresty.conf]: https://raw2.github.com/markc/lua/master/openresty.conf
-[openresty.build]: https://raw2.github.com/markc/lua/master/openresty.build
-[markc/lua]: https://github.com/markc/lua
 [Ghost]: https://ghost.org
 [disqus.com]: http:disqus.com
 
