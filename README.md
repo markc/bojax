@@ -176,7 +176,7 @@ images from the [/5] posting is...
 
 ## [bojax.html]
 
-Some titles and links need to be changed in the [index.html] page. The main
+Some titles and links need to be changed in the [bojax.html] page. The main
 frontpage index links to [lib/md/1.md] from the `navbar-brand` project
 title and must remain as such. `About` links to [lib/md/2.md] which in turn
 symlinks to this [README.md]. `Contact` links  to [lib/md/3.md] and is
@@ -211,15 +211,15 @@ from the [Ghost] project plus a little [Github] styling on top of a
 [disqus]: http://disqus.com/websites
 [Github]: https://github.com
 [Bootstrap]: http://getbootstrap.com
-[index.html]: https://raw2.github.com/markc/bojax/master/index.html
-[lib/css/bojax.css]: https://raw2.github.com/markc/bojax/master/lib/css/bojax.css
-[lib/js/bojax.js]: https://raw2.github.com/markc/bojax/master/lib/js/bojax.js
-[README.md]: https://raw2.github.com/markc/bojax/master/README.md
-[lib/md/1.md]: https://raw2.github.com/markc/bojax/master/lib/md/1.md
-[lib/md/2.md]: https://raw2.github.com/markc/bojax/master/lib/md/2.md
-[lib/md/3.md]: https://raw2.github.com/markc/bojax/master/lib/md/3.md
-[lib/md/4.md]: https://raw2.github.com/markc/bojax/master/lib/md/4.md
-[/5]: https://raw2.github.com/markc/bojax/master/lib/md/5.md
+[bojax.html]: https://raw.githubusercontent.com/markc/bojax/master/bojax.html
+[lib/css/bojax.css]: https://raw.githubusercontent.com/markc/bojax/master/lib/css/bojax.css
+[lib/js/bojax.js]: https://raw.githubusercontent.com/markc/bojax/master/lib/js/bojax.js
+[README.md]: https://raw.githubusercontent.com/markc/bojax/master/README.md
+[lib/md/1.md]: https://raw.githubusercontent.com/markc/bojax/master/lib/md/1.md
+[lib/md/2.md]: https://raw.githubusercontent.com/markc/bojax/master/lib/md/2.md
+[lib/md/3.md]: https://raw.githubusercontent.com/markc/bojax/master/lib/md/3.md
+[lib/md/4.md]: https://raw.githubusercontent.com/markc/bojax/master/lib/md/4.md
+[/5]: https://raw.githubusercontent.com/markc/bojax/master/lib/md/5.md
 [marked]: https://github.com/chjj/marked
 [GFM]: https://help.github.com/articles/github-flavored-markdown
 [Ghost]: https://ghost.org
