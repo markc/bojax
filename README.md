@@ -18,24 +18,11 @@ The primary goal of this project is to provide...
 ## Installation
 
 To install just [clone this repo] or [download and extract] the zipfile and
-point your web server to it's directory, zero setup. A build script for
-[OpenResty], using the latest nginx and [LUA] module, is available from the
-[markc/lua] repository as [openresty.build].
+point your web server to it's directory, zero setup.
 
     # on webserver
     cd /var/www
     git clone https://github.com/markc/bojax bojax.net
-
-If you want to also try the Lua scripts then...
-
-    cd lib
-    git clone https://github.com/markc/lua
-
-otherwise comment out or remove the "Testing Lua" menu option in index.html...
-
-    <!-- comment out this section if lib/lua example does not exist -->
-    (remove everything between the above and below comments markers)
-    <!-- end lib/lua comment section -->
 
 You will also want to update the `/3` Contact form and add your email address
 in the Javascript section at the bottom and also remove the `/4` Comments link
@@ -58,8 +45,6 @@ The location try_files line forces all the non-existent urls back to
 and provide bookmarking of these virtual URLs. The reason for the short
 numeric URLs is so they are indeed short and easy to paste into emails or
 other blogs posts instead of using some 3rd party short-URL service.
-Non-numeric URLs are reserved for non-Markdown based LUA links. A more
-complete `nginx.conf` example is available as [openresty.conf].
 
 
 ## Auto Update Remote Site
@@ -71,20 +56,9 @@ as a `.git/hooks/post-commit` hook can be used instead...
 
     #!/bin/sh
     rsync -av ./ bojax.net:var/www/bojax.net --del --exclude='.git'
-    ssh -t -t bojax.net '/home/admin/bin/nrestart'
+    ssh -t -t bojax.net 'service nginx restart'
     echo
     echo "Remember to 'git push' if using a remote git repo"
-
-where `nrestart` is a shell script on the remote server...
-
-    #!/bin/sh
-    sudo kill `cat /home/admin/tmp/nginx.pid` && sudo /home/admin/bin/nginx
-
-and these aliases are also handy for the admin user (assuming OpenResty
-has been built and installed under the admin user account)...
-
-    alias nstart='sudo /home/admin/bin/nginx'
-    alias nstop='sudo kill `cat /home/admin/tmp/nginx.pid`'
 
 Make sure you `chmod +x .git/hooks/post-commit` and the `./` rsync source
 path will need to be a full path to your repo if you execute a
